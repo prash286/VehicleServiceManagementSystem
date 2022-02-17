@@ -31,4 +31,11 @@ public class User extends BaseEntity {
 	private Role userRole;
 	private boolean isActive;
 	
-}
+	
+	public User(String userName,int id) 
+	{
+		super(id);
+		this.userName = userName;
+	}
+	
+	}
