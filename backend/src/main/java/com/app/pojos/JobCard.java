@@ -7,15 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Table;
-<<<<<<< HEAD
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
-=======
->>>>>>> a0c603be0325f3d79d6d360dcd3891109fd0b210
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,7 +26,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class JobCard extends BaseEntity {
-<<<<<<< HEAD
 	@NotBlank(message="Enter customer name")
 	@Column(name="cust_name",length=60)
 	private String custName;
@@ -60,26 +56,5 @@ public class JobCard extends BaseEntity {
 	private String suggestedWork;
 	@NotEmpty(message="Enter mechanic name")
 	@Column(name="mechanic_assigned",length=40)
-=======
-	@Column(name="cust_name",length=30)
-	private String custName;
-	@Column(name="cust_email",length=20)
-	private String custEmail;
-	@Column(name="mobile_no",length=20)
-	private String mobileNo;
-	private LocalDate date;
-	@Column(name="vehicle_model",length=10)
-	private String vehicleModel;
-	@Column(name="vehicle_no",length=10)
-	private String vehicleNo;
-	@Column(name="chasis_no",length=20)
-	private String chasisNo;
-	@Enumerated(EnumType.STRING)
-	@Column(name="service_type")
-	private Services serviceType;
-	@Column(name="suggested_work",length=60)
-	private String suggestedWork;
-	@Column(name="mechanic_assigned",length=20)
->>>>>>> a0c603be0325f3d79d6d360dcd3891109fd0b210
 	private String mechanicAssigned;
 }
