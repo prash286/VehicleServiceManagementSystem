@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class VehicleParts extends BaseEntity{
-	@Column(name="part_name",length=10)
+	@Column(name="part_name",length=60)
 	private String partName;
 	private int qty;
 	private double rate;

@@ -36,5 +36,4 @@ public class ServiceRequest extends BaseEntity {
 	@JsonIgnore
 	@JoinColumn(name = "cust_id")
 	private User user;
-
 }

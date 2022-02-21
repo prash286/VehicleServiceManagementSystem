@@ -1,13 +1,17 @@
 package com.app.pojos;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
@@ -35,12 +39,16 @@ public class Invoice extends BaseEntity {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "service_type", length = 20)
 	private Services serviceType;
-	@Column(name = "parts_replaced", length = 60)
-	private String partsReplaced;
-	private int qty;
+//	@Column(name = "parts_replaced", length = 60)
+	/*
+	 * private String partsReplaced; private int qty;
+	 */
+	@ElementCollection
+	 @CollectionTable(name="bill_entry",joinColumns=@JoinColumn(name="invoice_id"))
+	private List<BillEntry> billEntry=new ArrayList<>();
 	private double labourCharge;
 	private double totalAmount;
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne
 	@JsonIgnore
 	@MapsId
 	@JoinColumn(name="job_card_Id")

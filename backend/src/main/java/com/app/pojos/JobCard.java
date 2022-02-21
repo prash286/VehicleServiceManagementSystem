@@ -57,4 +57,5 @@ public class JobCard extends BaseEntity {
 	@NotEmpty(message="Enter mechanic name")
 	@Column(name="mechanic_assigned",length=40)
 	private String mechanicAssigned;
+	private boolean isActive;
 }

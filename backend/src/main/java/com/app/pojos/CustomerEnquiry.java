@@ -25,9 +25,9 @@ public class CustomerEnquiry extends BaseEntity {
 	private String custName;
 	@Column(length = 30)
 	private String subject;
-	@Column(length = 60)
+	@Column(length = 100)
 	private String description;
-	@Column(length = 60)
+	@Column(length = 100)
 	private String response;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
