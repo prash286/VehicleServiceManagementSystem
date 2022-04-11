@@ -26,35 +26,35 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class JobCard extends BaseEntity {
-	@NotBlank(message="Enter customer name")
+//	@NotBlank(message="Enter customer name")
 	@Column(name="cust_name",length=60)
 	private String custName;
-	@Pattern(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
-			+ "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$", message = "Blank or Invalid Email Id : must contain '@' & '.com' ")
+//	@Pattern(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
+//			+ "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$", message = "Blank or Invalid Email Id : must contain '@' & '.com' ")
 	@Column(name="cust_email",length=60)
 	private String custEmail;
-	@NotEmpty(message = "Mobile no is Mandetory")
-	@Length(min = 10, max = 13, message = "Mobile no must contain 10 digit")
+//	@NotEmpty(message = "Mobile no is Mandetory")
+//	@Length(min = 10, max = 13, message = "Mobile no must contain 10 digit")
 	@Column(name="mobile_no",length=60)
 	private String mobileNo;
 	private LocalDate date;
-	@NotEmpty(message="Enter vehicle model")
+//	@NotEmpty(message="Enter vehicle model")
 	@Column(name="vehicle_model",length=60)
 	private String vehicleModel;
-	@NotEmpty(message="Enter vehicle no")
+//	@NotEmpty(message="Enter vehicle no")
 	@Column(name="vehicle_no",length=60)
 	private String vehicleNo;
-	@NotEmpty(message="Enter chasis no")
+//	@NotEmpty(message="Enter chasis no")
 	@Column(name="chasis_no",length=60)
 	private String chasisNo;
-	@NotNull(message="Select service type")
+//	@NotNull(message="Select service type")
 	@Enumerated(EnumType.STRING)
 	@Column(name="service_type")
 	private Services serviceType;
-	@NotEmpty(message="Enter  work  details")
+//	@NotEmpty(message="Enter  work  details")
 	@Column(name="suggested_work",length=400)
 	private String suggestedWork;
-	@NotEmpty(message="Enter mechanic name")
+//	@NotEmpty(message="Enter mechanic name")
 	@Column(name="mechanic_assigned",length=40)
 	private String mechanicAssigned;
 	private boolean isActive;

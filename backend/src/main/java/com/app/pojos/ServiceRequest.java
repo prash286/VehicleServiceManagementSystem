@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -26,11 +27,14 @@ public class ServiceRequest extends BaseEntity {
 	@Column(name = "cust_name", length = 30)
 	private String custName;
 	@Column(name = "mobile_no", length = 20)
+	@NotEmpty(message = "Mobile no should not be blank")
 	private String mobileNo;
+	@NotEmpty(message = "Vehicle model should not be blank")
 	@Column(name = "vehicle_model", length = 20)
-	private String VehicleModel;
+	private String vehicleModel;
+	@NotEmpty(message = "Vehicle no should not be blank")
 	@Column(name = "vehicle_no", length = 20)
-	private String VehicleNo;
+	private String vehicleNo;
 	private LocalDate date;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
