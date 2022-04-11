@@ -36,7 +36,7 @@ import lombok.NoArgsConstructor;
 public class DTOCreateUserRequest {
 
 	@Pattern(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
-			+ "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$", message = "Blank or Invalid Email Id : must contain '@' & '.com' ")
+			+ "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$", message = "Blank or Invalid Email Id : must contain '@' ")
 	private String email;
 	@NotEmpty(message = "Mobile no is Mandetory")
 	@Length(min = 10, max = 13, message = "Mobile no must contain 10 digit")

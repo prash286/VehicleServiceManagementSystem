@@ -6,6 +6,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -23,8 +24,10 @@ import lombok.NoArgsConstructor;
 public class CustomerEnquiry extends BaseEntity {
 	@Column(name = "cust_name", length = 30)
 	private String custName;
+	@NotEmpty(message = "Subject should not be blank")
 	@Column(length = 30)
 	private String subject;
+	@NotEmpty(message="Description should not be blank")
 	@Column(length = 100)
 	private String description;
 	@Column(length = 100)

@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,15 +37,15 @@ public UserController() {
 
 //add a request handling method for registering New user  & validate it
 @PostMapping("/register")
-public ResponseEntity<?> registerNewUser(@RequestBody @Valid DTOCreateUserRequest user)
+public ResponseEntity<?> registerNewUser(@RequestBody @Valid User user)
 {	
-	User userPojo= new User(user.getEmail(), user.getMobileNo(), user.getUserName(), user.getPassword(), user.getUserRole(),user.isActive());
+
 	System.out.println("in add user method");
-	if(userPojo.getUserRole()==Role.ADMIN || userPojo.getUserRole()==Role.CUSTOMER)
+	if(user.getUserRole()==Role.ADMIN || user.getUserRole()==Role.CUSTOMER)
 	{
-		userPojo.setActive(true);
+		user.setActive(true);
 	}	
-	return new ResponseEntity<>(userService.addUserDetails(userPojo),HttpStatus.OK); 
+	return new ResponseEntity<>(userService.addUserDetails(user),HttpStatus.OK); 
 }
 
 //add a request handling method for validate login & getDetails
@@ -55,39 +57,30 @@ public ResponseEntity<?> validateAndGetDetails(@RequestBody @Valid DTOUserLoginD
 
 
 //add a request handling method to update user profile
-@PostMapping("/update/{uid}")
+@PutMapping("/update/{uid}")
 public ResponseEntity<?> updateUserProfile(@RequestBody @Valid DTOUpdateUserProfile updateUser,@PathVariable int uid)
 {
      	return new ResponseEntity<>(userService.updateUserProfile(updateUser, uid),HttpStatus.OK);
 }
 
 //add a request handling method to delete user profile
-@GetMapping("/delete/{uid}")
+@DeleteMapping("/delete/{uid}")
 public ResponseEntity<?> removeUserProfile(@PathVariable int uid)
 {
     return new ResponseEntity<>(userService.removeUserProfile(uid),HttpStatus.OK);	
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-@GetMapping("/sendmail")
-public String sendMail(@RequestParam String email)
+//add a method to send link to email for change password
+@GetMapping("/sendemail/{email}")
+public ResponseEntity<?> sendMail(@PathVariable String email)
 {
 	userService.sendMail(email);
-	return "Mail Sent Succesffuly";
+	return new ResponseEntity<>("Mail Sent Successfully",HttpStatus.OK);
 	
 }
-@PostMapping("/change")
+
+//add a request handling method to change password
+@PostMapping("/changepass")
 public String changePassword(@RequestBody @Valid DTOPasswordChange change)
 {
 	      String email=change.getEmail();

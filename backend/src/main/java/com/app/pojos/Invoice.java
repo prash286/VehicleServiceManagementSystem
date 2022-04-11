@@ -10,10 +10,15 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -33,6 +38,7 @@ public class Invoice extends BaseEntity {
 	private String custName;
 	@Column(name = "mobile_no", length = 20)
 	private String mobileNo;
+	@FutureOrPresent(message="Date should be present or Future")
 	private LocalDate date;
 	@Column(name = "vehicle_model", length = 20)
 	private String vehicleModel;
