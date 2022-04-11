@@ -1,9 +1,7 @@
 import React from "react";
 const ContactUs = () => {
   return (
-    <>
-      <h3>Contact</h3>
-      <div>
+    <div>
       <div className="container">
         <div className="py-4">
           <h3>Leave us a message!</h3>
@@ -14,8 +12,6 @@ const ContactUs = () => {
         </div>
       </div>
     </div>
-
-    </>
   );
 };
 export default ContactUs;

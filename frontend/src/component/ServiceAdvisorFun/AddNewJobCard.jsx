@@ -55,7 +55,7 @@ const JobCard = () => {
 
   const handleSubmit = (e) => {
     // console.log(jobcard);
-    e.preventDefault();//prevent a browser to reload/refresh
+    e.preventDefault();
     validateJobCard();
     advisorservice
       .addJobCard(jobcard)
@@ -70,7 +70,6 @@ const JobCard = () => {
   };
 
   return (
-    
     <form
       className=" d-flex justify-content-center align-items-center"
       style={{ height: "65rem" }}

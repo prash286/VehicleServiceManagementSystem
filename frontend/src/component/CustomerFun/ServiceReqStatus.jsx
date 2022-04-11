@@ -1,30 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import customerservice from "../../services/customerservice";
-const EnquiryStatus = () => {
+import { useNavigate } from "react-router-dom";
+const ServiceReqStatus = () => {
   let user = JSON.parse(sessionStorage.getItem("user"));
   const [id] = useState(user ? user.id : "");
   let navigate = useNavigate();
   let count = 1;
-  const [enquiries, setEnquiries] = useState([]);
-
-  const init = () => {
-    customerservice
-      .getEnquiryStatus(id)
-      .then((response) => {
-        // console.log(response.data);
-        setEnquiries(response.data);
-        // console.log(enquiries);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  const [serviceReq, setServiceReq] = useState([]);
 
   useEffect(() => {
+    const init = () => {
+      customerservice
+        .getRequestStatus(id)
+        .then((response) => {
+          setServiceReq(response.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
     init();
-  }, []);
-
+  }, [id]);
   return (
     <div>
       <table className="table table-success table-striped">
@@ -32,27 +28,29 @@ const EnquiryStatus = () => {
           <tr>
             <th scope="col">Sr.No</th>
             <th scope="col">Customer Name</th>
-            <th scope="col">Subject</th>
-            <th scope="col">Description</th>
-            <th scope="col">Response</th>
+            <th scope="col">MobileNo</th>
+            <th scope="col">Vehicle Model</th>
+            <th scope="col">Vehicle No</th>
+            <th scope="col">Date for Service</th>
           </tr>
         </thead>
         <tbody>
-          {enquiries.map((customer) => (
+          {serviceReq.map((customer) => (
             <tr key={customer.id}>
               <td align="center">{count++}</td>
               <td>{customer.custName}</td>
-              <td>{customer.subject}</td>
-              <td>{customer.description}</td>
-              {customer.response ? (
-                <td style={{ color: "blue" }}>{customer.response}</td>
+              <td>{customer.mobileNo}</td>
+              <td>{customer.vehicleModel}</td>
+              <td>{customer.vehicleNo}</td>
+              {customer.date ? (
+                <td style={{ color: "blue" }}>{customer.date}</td>
               ) : (
                 <td style={{ color: "red" }}>Wait for response...</td>
               )}
             </tr>
           ))}
           <tr align="center">
-            <td colSpan={5}>
+            <td colSpan={6}>
               <button
                 type="button"
                 className="btn btn-primary btn-md"
@@ -67,5 +65,4 @@ const EnquiryStatus = () => {
     </div>
   );
 };
-
-export default EnquiryStatus;
+export default ServiceReqStatus;

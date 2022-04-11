@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import userservice from "../services/UserService";
+import userservice from "../services/userservice";
 import errorMessage from "./JS/errorMessage";
 import { useNavigate } from "react-router-dom";
 const LoginPage = () => {
@@ -74,7 +74,7 @@ const LoginPage = () => {
                           className="fas fa-cubes fa-2x me-3"
                           style={{ color: "#ff6219" }}
                         ></i>
-                        <span className="h1 fw-bold mb-0">Login</span>
+                        <span className="h1 fw-bold mb-0">Logo</span>
                       </div>
 
                       <h6 style={{ color: "red" }} id="err"></h6>

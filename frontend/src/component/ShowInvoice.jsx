@@ -29,7 +29,6 @@ const ShowInvoice = () => {
   const printBill = () => {
     window.print();
   };
-
   return (
     <div className="card">
       <div className="card-body">
@@ -42,10 +41,9 @@ const ShowInvoice = () => {
             </div>
             <div className="col-xl-3 float-end">
               <a
+                onClick={() => printBill()}
                 className="btn btn-light text-capitalize border-0"
                 data-mdb-ripple-color="dark"
-                onClick={()=>printBill()}
-               
               >
                 <FcPrint /> Print
               </a>
@@ -127,8 +125,8 @@ const ShowInvoice = () => {
               </table>
             </div>
             <div className="row">
-              <div className="col-xl-3">
-                <p className="text-black float-start">
+              <div className="col-md-10">
+                <p className="text-black float-end">
                   <span className="text-black">Labour Charge: </span>
                   <span style={{ fontSize: "25px" }}>
                     {invoice.labourCharge}
@@ -137,8 +135,8 @@ const ShowInvoice = () => {
               </div>
             </div>
             <div className="row">
-              <div className="col-xl-3">
-                <p className="text-black float-start">
+              <div className="col-md-10">
+                <p className="text-black float-end">
                   <span className="text-black">Total Amount: </span>
                   <span style={{ fontSize: "25px" }}>
                     {invoice.totalAmount}

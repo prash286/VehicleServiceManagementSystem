@@ -1,9 +1,7 @@
 import React from "react";
 const AboutUS = () => {
   return (
-    <>
-      <h3>About Us</h3>
-      <div>
+    <div>
       <div className="container">
         <div className="py-4">
           <h2>About Us</h2>
@@ -19,15 +17,14 @@ const AboutUS = () => {
             Management System
           </p>
           <p>
-            Internal Mentor - Vaishal Chikhalkar External Mentor-Kashinath Patil
+            Internal Mentor - Vaishali Chikhalkar External Mentor-Kashinath
+            Patil
           </p>
           <p>Member 1 - Prashant Yesankar (219235)</p>
           <p>Member 2 - Durgadevi Bulbule(219050)</p>
         </div>
       </div>
     </div>
-
-    </>
   );
 };
 export default AboutUS;

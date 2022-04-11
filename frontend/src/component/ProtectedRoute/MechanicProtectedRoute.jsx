@@ -7,8 +7,8 @@ const MechanicProtected = (props) => {
   useEffect(() => {
     if (
       !user ||
-      user.userRole === "ADMIN" ||
       user.userRole === "CUSTOMER" ||
+      user.userRole === "ADMIN" ||
       user.userRole === "SERVICEADVISOR"
     ) {
       navigate("/loginpage");

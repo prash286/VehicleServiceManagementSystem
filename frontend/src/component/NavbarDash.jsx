@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./css/Sidebar.css";
+import "./CSS/Sidebar.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import * as FaIcons from "react-icons/fa";
@@ -78,18 +78,6 @@ const NavbarDash = () => {
                   >
                     Register
                   </a>
-                  {/* <div className="dropdown-menu">
-                    <Link to={`register/${"a"}`} className="dropdown-item">
-                      Customer
-                    </Link>
-                    <Link to={`register/${"b"}`} className="dropdown-item">
-                      Mechanic
-                    </Link>
-                    <Link to={`register/${"c"}`} className="dropdown-item">
-                      Service Advisor
-                    </Link>
-
-                  </div> */}
                   <ul
                     className="dropdown-menu"
                     aria-labelledby="navbarDropdown"
@@ -165,7 +153,10 @@ const NavbarDash = () => {
                           </li>
                           <li className="side-nav-text">
                             <Link to="/enquirystatus">
-                              <FcIcons.FcQuestions /> &nbsp;&nbsp;
+                              <h4>
+                                <FcIcons.FcViewDetails />
+                              </h4>
+                              &nbsp;&nbsp;
                               <span>Enquiry Status</span>
                             </Link>
                           </li>
@@ -190,6 +181,12 @@ const NavbarDash = () => {
                         </>
                       ) : user.userRole === "ADMIN" ? (
                         <>
+                          <li className="side-nav-text">
+                            <Link to="/addadmin">
+                              <FcIcons.FcQuestions /> &nbsp;&nbsp;
+                              <span>Add Admin</span>
+                            </Link>
+                          </li>
                           <li className="side-nav-text">
                             <Link to="/servicerecords">
                               <FcIcons.FcQuestions /> &nbsp;&nbsp;

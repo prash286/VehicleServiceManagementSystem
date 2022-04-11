@@ -1,5 +1,5 @@
 import React from "react";
-import "./css/Home.css";
+import "./CSS/Home.css";
 // import""from "../assets/images/backImageVSMS.jpg";
 
 const HomePage = () => {
@@ -99,7 +99,7 @@ const HomePage = () => {
             <div className="col-md-4 col-10 col-xxl-4 mx-auto">
               <div className="card">
                 <img
-                  src="./images/detailed.jpg"
+                  src="./images/detailed.png"
                   alt="detail"
                   className="card-img-top"
                   data-bs-toggle="tooltip"
@@ -151,7 +151,7 @@ const HomePage = () => {
             <div className="col-md-4 col-10 col-xxl-4 mx-auto">
               <div className="card">
                 <img
-                  src="./images/Battries.jpg"
+                  src="./images/Battries.png"
                   alt="detail"
                   className="card-img-top"
                 />
@@ -196,7 +196,7 @@ const HomePage = () => {
             <div className="col-md-4 col-10 col-xxl-4 mx-auto">
               <div className="card">
                 <img
-                  src="./images/carSpa.jpg"
+                  src="./images/carSpa.png"
                   alt="detail"
                   className="card-img-top"
                 />
@@ -244,7 +244,7 @@ const HomePage = () => {
             <div className="col-md-4 col-10 col-xxl-4 mx-auto">
               <div className="card">
                 <img
-                  src="./images/denting.jpg"
+                  src="./images/denting.jfif"
                   alt="detail"
                   className="card-img-top"
                 />
@@ -292,7 +292,7 @@ const HomePage = () => {
             <div className="col-md-4 col-10 col-xxl-4 mx-auto">
               <div className="card">
                 <img
-                  src="./images/PeriodicService.jpg"
+                  src="./images/PeriodicService.jfif"
                   alt="detail"
                   className="card-img-top"
                 />
@@ -346,7 +346,7 @@ const HomePage = () => {
             <div className="col-md-4 col-10 col-xxl-4 mx-auto">
               <div className="card">
                 <img
-                  src="./images/wheel.jpg"
+                  src="./images/wheel.png"
                   alt="detail"
                   className="card-img-top"
                 />

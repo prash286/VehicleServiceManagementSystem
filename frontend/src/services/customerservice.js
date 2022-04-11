@@ -1,4 +1,4 @@
-import httpClient from "../http_common/customer-http-common";
+import httpClient from "../httpcommon/customer-http-common";
 //make enquiery
 const sendEnquiry = (data, id) => {
   return httpClient.post(`/addenquiry/${id}`, data);
@@ -18,8 +18,8 @@ const getVehicleServiceStatus = (email) => {
   return httpClient.get(`/servicestatus/${email}`);
 };
 
-const getInvoice=(jid)=>{
-  return httpClient.get(`/getinvoice/${jid}`)
+const getInvoice = (id) => {
+  return httpClient.get(`/getinvoice/${id}`);
 };
 export default {
   sendEnquiry,

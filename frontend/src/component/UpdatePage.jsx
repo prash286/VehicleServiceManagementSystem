@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import userservice from "../services/UserService";
+import userservice from "../services/userservice";
 import errorMessage from "./JS/errorMessage";
 const UpdatePage = () => {
   const user = JSON.parse(sessionStorage.getItem("user"));

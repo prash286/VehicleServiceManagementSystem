@@ -1,23 +1,23 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import adminservice from "../../services/adminservice";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import adminservice from "../../services/adminservice";
 const ServiceRecords = () => {
-  const [jobcards, setJobcards] = useState([]);
+  const [jobCards, setJobCards] = useState([]);
   let navigate = useNavigate();
   let count = 1;
   useEffect(() => {
     init();
   }, []);
-  const init = (() => {
-    adminservice.getAllJobCards()
+  const init = () => {
+    adminservice
+      .getAllJobCards()
       .then((response) => {
-        setJobcards(response.data);
-      }).catch((err) => {
+        setJobCards(response.data);
+      })
+      .catch((err) => {
         console.log(err);
       });
-  });
+  };
   return (
     <div
       style={{
@@ -29,8 +29,10 @@ const ServiceRecords = () => {
       <table className="table table-success table-striped">
         <thead>
           <tr>
-            <th scope="col">Sr.No</th>
-            <th scope="col">jobcard Name</th>
+            <th scope="col" align="center">
+              Sr.No
+            </th>
+            <th scope="col">Customer Name</th>
             <th scope="col">Email</th>
             <th scope="col">Mobile No</th>
             <th scope="col">Vehcile Model</th>
@@ -43,9 +45,9 @@ const ServiceRecords = () => {
           </tr>
         </thead>
         <tbody>
-          {jobcards.map((jobcard) => (
+          {jobCards.map((jobcard) => (
             <tr key={jobcard.id}>
-              <td>{count++}</td>
+              <td align="center">{count++}</td>
               <td>{jobcard.custName}</td>
               <td>{jobcard.custEmail}</td>
               <td>{jobcard.mobileNo}</td>
@@ -55,20 +57,35 @@ const ServiceRecords = () => {
               <td>{jobcard.serviceType}</td>
               <td>{jobcard.suggestedWork}</td>
               <td>{jobcard.mechanicAssigned}</td>
-              {jobcard.active == false ? (<td style={{ color: "red" }}>Pending... </td>) : (<td><button type="button"
-                className="btn btn-success btn-md">Bill</button></td>)}
+              {jobcard.active === false ? (
+                <td style={{ color: "red" }}>Pending...</td>
+              ) : (
+                <td>
+                  <button
+                    className="btn btn-success btn-md"
+                    onClick={() => {
+                      navigate(`/getbill/${jobcard.id}`);
+                    }}
+                  >
+                    Show Bill
+                  </button>
+                </td>
+              )}
             </tr>
           ))}
           <tr align="center">
             <td colSpan={11}>
-              <button type="button"
-                className="btn btn-primary btn-md" onClick={() => navigate("/adminpage")}>Back</button>
+              <button
+                className="btn btn-primary btn-md"
+                onClick={() => navigate("/adminpage")}
+              >
+                Back
+              </button>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
   );
-
-}
+};
 export default ServiceRecords;

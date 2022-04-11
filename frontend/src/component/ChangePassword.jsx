@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import userservice from "../services/UserService";
+import userservice from "../services/userservice";
 const ChangePassword = () => {
-  let navigate = useNavigate();
+  let navigate = useNavigate;
   let { email } = useParams();
   const [password, setPassword] = useState("");
 

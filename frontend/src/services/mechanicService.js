@@ -1,13 +1,12 @@
-import httpClient from "../http_common/mechanic-http-common ";
-const getAssignedJobCards=(name)=>{
-  return  httpClient.get(`/${name}`);
-};
-const getVehicleParts=()=>{
-  return httpClient.get("/parts");
+import httpClient from "../httpcommon/mechanic-http-common";
 
-  
+const getAssignedJobCards = (name) => {
+  return httpClient.get(`/${name}`);
 };
-const addInvoice=(invoice,jid)=>{
-  return httpClient.post(`/invoicesubmit/${jid}`,invoice);
+const getVehicleParts = () => {
+  return httpClient.get("/parts");
 };
-export default { getAssignedJobCards,getVehicleParts,addInvoice };
+const addInvoice = (data, jid) => {
+  return httpClient.post(`/invoicesubmit/${jid}`, data);
+};
+export default { getAssignedJobCards, getVehicleParts, addInvoice };

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import mechanicservice from "../../services/mechanicService";
+import mechanicservice from "../../services/mechanicservice";
 import errorMessage from "../JS/errorMessage";
 import validateInvoice from "../JS/invoiceValidate";
 const InvoiceForm = () => {

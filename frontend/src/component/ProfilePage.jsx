@@ -54,17 +54,16 @@ const ProfilePage = () => {
           <li className="list-group-item">
             <b>Role: </b> {role}
           </li>
-          
-        
-         
-          
-
 
           <li className="list-group-item" align="center">
-            <button 
-            type="button"
-            class="btn btn-success btn-md"
-            onClick={() => navigate(`/update/${id}`)}>Edit</button>&nbsp;&nbsp;
+            <button
+              type="button"
+              class="btn btn-success btn-md"
+              onClick={() => navigate(`/update/${id}`)}
+            >
+              Edit
+            </button>
+            &nbsp;&nbsp;
             {user.userRole === "CUSTOMER" ? (
               <button
                 type="button"

@@ -1,36 +1,25 @@
 import React from "react";
-import UserService from "../services/userservice";
+import userservice from "../../services/userservice";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import validateRegistration from "./JS/validateReg";
-const RegistrationPage = () => {
+import validateRegistration from "../JS/validateReg";
+const AddAdmin = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [mobileNo, setMobileno] = useState("");
   const [password, setPassword] = useState("");
-  const { role } = useParams();
   const navigate = useNavigate();
 
   const saveUser = (e) => {
     e.preventDefault();
     validateRegistration();
-    var user = null;
-    if (role === "a") {
-      const userRole = "CUSTOMER";
-      user = { userName, email, mobileNo, password, userRole };
-      // console.log(user);
-    } else if (role === "b") {
-      const userRole = "MECHANIC";
-      user = { userName, email, mobileNo, password, userRole };
-      // console.log(user);
-    } else if (role === "c") {
-      const userRole = "SERVICEADVISOR";
-      user = { userName, email, mobileNo, password, userRole };
-      // console.log(user);
-    }
-    UserService.create(user)
+    const userRole = "ADMIN";
+    let user = { userName, email, mobileNo, password, userRole };
+    userservice
+      .create(user)
       .then((response) => {
         alert(response.data);
+        sessionStorage.clear();
         navigate("/");
       })
       .catch((error) => console.log("Client side error", error));
@@ -163,4 +152,4 @@ const RegistrationPage = () => {
     </div>
   );
 };
-export default RegistrationPage;
+export default AddAdmin;

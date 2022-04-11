@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import userservice from "../services/UserService";
+import userservice from "../services/userservice";
 import errorMessage from "./JS/errorMessage";
 const ForgotPassword = () => {
   let navigate = useNavigate();

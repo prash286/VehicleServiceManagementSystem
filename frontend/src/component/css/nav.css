@@ -1,4 +1,4 @@
-nav::before {
+/* nav::before {
   content: "";
   background-color: #3a3c45;
   position: absolute;
@@ -6,7 +6,7 @@ nav::before {
   width: 100%;
   z-index: -1;
   opacity: 0.2;
-}
+} */
 /* #toggelebtn {
   width: 47px;
   height: 34px;

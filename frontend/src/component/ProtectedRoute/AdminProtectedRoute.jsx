@@ -7,9 +7,9 @@ const AdminProtected = (props) => {
   useEffect(() => {
     if (
       !user ||
-      user.userRole === "SERVICEADVISOR" ||
+      user.userRole === "CUSTOMER" ||
       user.userRole === "MECHANIC" ||
-      user.userRole === "CUSTOMER"
+      user.userRole === "SERVICEADVISOR"
     ) {
       navigate("/loginpage");
     }
@@ -20,4 +20,4 @@ const AdminProtected = (props) => {
     </>
   );
 };
-export default AdminProtected ;
+export default AdminProtected;
